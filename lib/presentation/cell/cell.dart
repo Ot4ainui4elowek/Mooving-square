@@ -13,6 +13,9 @@ class Cell extends StatelessWidget {
   final _xPosition;
   final _yPosition;
 
+  int get x => _xPosition;
+  int get y => _yPosition;
+
   bool isVisible;
 
   @override

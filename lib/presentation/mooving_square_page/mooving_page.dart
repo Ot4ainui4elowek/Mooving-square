@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:running_square/presentation/moover_controller/moover_controller.dart';
+import 'package:running_square/presentation/moover_observer/moover_observer.dart';
 import 'package:running_square/presentation/mooving_buttons/mooving.buttons.dart';
 import 'package:running_square/presentation/mooving_squares_display/mooving_display.dart';
 
 class MoovingPage extends StatefulWidget {
   final title = 'Mooving the square';
   MoovingPage({super.key}) {
-    _mooverController = MooverController(_moovingDisplay);
-    _moovingButtons = MoovingButtons(controller: _mooverController);
+    _mooverObserver = MooverObserver(_moovingDisplay);
+    _moovingButtons = MoovingButtons(observer: _mooverObserver);
   }
   final MoovingDisplay _moovingDisplay = MoovingDisplay(
-    matrixSize: 6,
+    matrixSize: 4,
   );
   late final MoovingButtons _moovingButtons;
 
-  late final MooverController _mooverController;
+  late final MooverObserver _mooverObserver;
 
   @override
   State<MoovingPage> createState() => _MoovingPageState();

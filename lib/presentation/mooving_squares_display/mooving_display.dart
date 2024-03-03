@@ -52,6 +52,14 @@ class MoovingDisplay extends StatefulWidget {
     return newList;
   }
 
+  void moove({required int x, required int y}) {
+    cells[_yPosition][_xPosition].isVisible = false;
+    cells[y][x].isVisible = true;
+    _yPosition = y;
+    _xPosition = x;
+    cellsWidget = getCellsWidget();
+  }
+
   @override
   State<MoovingDisplay> createState() => _MoovingDisplayState();
 }

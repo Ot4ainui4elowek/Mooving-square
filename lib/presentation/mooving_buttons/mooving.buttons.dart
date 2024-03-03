@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:running_square/presentation/moover_controller/moover_controller.dart';
+import 'package:running_square/presentation/moover_observer/moover_observer.dart';
 
 class MoovingButtons extends StatefulWidget {
-  const MoovingButtons({super.key, required controller})
-      : _controller = controller;
+  const MoovingButtons({super.key, required observer}) : _observer = observer;
 
-  final MooverController _controller;
+  final MooverObserver _observer;
 
   @override
   State<MoovingButtons> createState() => _MoovingButtonsState();
@@ -26,7 +25,7 @@ class _MoovingButtonsState extends State<MoovingButtons> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FloatingActionButton(
-                onPressed: () => widget._controller.moove(MooveType.up),
+                onPressed: () => widget._observer.moove(MooveType.up),
                 child: const Icon(Icons.arrow_circle_up_outlined),
               )
             ],
@@ -36,11 +35,11 @@ class _MoovingButtonsState extends State<MoovingButtons> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               FloatingActionButton(
-                onPressed: () => widget._controller.moove(MooveType.left),
+                onPressed: () => widget._observer.moove(MooveType.left),
                 child: const Icon(Icons.arrow_circle_left_outlined),
               ),
               FloatingActionButton(
-                onPressed: () => widget._controller.moove(MooveType.right),
+                onPressed: () => widget._observer.moove(MooveType.right),
                 child: const Icon(Icons.arrow_circle_right_outlined),
               )
             ],
@@ -49,7 +48,7 @@ class _MoovingButtonsState extends State<MoovingButtons> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FloatingActionButton(
-                onPressed: () => widget._controller.moove(MooveType.down),
+                onPressed: () => widget._observer.moove(MooveType.down),
                 child: const Icon(Icons.arrow_circle_down_outlined),
               )
             ],
