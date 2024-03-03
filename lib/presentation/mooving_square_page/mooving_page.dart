@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:running_square/presentation/moover_controller/moover_controller.dart';
 import 'package:running_square/presentation/mooving_buttons/mooving.buttons.dart';
 import 'package:running_square/presentation/mooving_squares_display/mooving_display.dart';
 
-class MoovingPageScreen extends StatefulWidget {
+class MoovingPage extends StatefulWidget {
   final title = 'Mooving the square';
-  MoovingPageScreen({super.key});
+  MoovingPage({super.key}) {
+    _mooverController = MooverController(_moovingDisplay);
+    _moovingButtons = MoovingButtons(controller: _mooverController);
+  }
   final MoovingDisplay _moovingDisplay = MoovingDisplay(
     matrixSize: 6,
   );
-  final MoovingButtons _moovingButtons = MoovingButtons();
+  late final MoovingButtons _moovingButtons;
+
+  late final MooverController _mooverController;
 
   @override
-  State<MoovingPageScreen> createState() => _MoovingPageScreenState();
+  State<MoovingPage> createState() => _MoovingPageState();
 }
 
-class _MoovingPageScreenState extends State<MoovingPageScreen> {
+class _MoovingPageState extends State<MoovingPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -26,7 +32,10 @@ class _MoovingPageScreenState extends State<MoovingPageScreen> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [widget._moovingDisplay, widget._moovingButtons],
+          children: [
+            widget._moovingDisplay,
+            widget._moovingButtons,
+          ],
         ));
   }
 }

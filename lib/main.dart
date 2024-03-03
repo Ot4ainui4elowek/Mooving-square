@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:running_square/presentation/mooving_square_screen/mooving_screen.dart';
+import 'package:running_square/presentation/mooving_square_page/mooving_page.dart';
 import 'package:running_square/theme.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: theme,
-      home: MoovingPageScreen(),
+      home: MoovingPage(),
     );
   }
 }

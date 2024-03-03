@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:running_square/presentation/cell/cell.dart';
-import 'package:running_square/presentation/mooving_buttons/mooving.buttons.dart';
 
 class MoovingDisplay extends StatefulWidget {
   MoovingDisplay({super.key, matrixSize})
@@ -15,12 +14,17 @@ class MoovingDisplay extends StatefulWidget {
   int _xPosition = 0;
   int _yPosition = 0;
 
+  int get xPosition => _xPosition;
+  int get yPosition => _yPosition;
+
   void setPosition({required int x, required int y}) {
     _xPosition = x;
     _yPosition = y;
   }
 
   final int _matrixSize;
+
+  int get matrixSize => _matrixSize;
   final List<List<Cell>> cells = [];
 
   void _initCells() {
